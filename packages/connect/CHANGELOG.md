@@ -1,5 +1,14 @@
 # @mastra/connect
 
+## 1.4.0-alpha.5
+
+### Patch Changes
+
+- Require `@mastra/core >=1.83.0-0 <2.0.0-0` when installing MCP or Connect to avoid imports missing from core 1.82. For existing installations, upgrade core alongside these packages (for example, replace `@mastra/core@1.82.0` with `@mastra/core@1.83.0`). ([#30125](https://github.com/mastra-ai/mastra/pull/30125))
+
+- Updated dependencies [[`2d42846`](https://github.com/mastra-ai/mastra/commit/2d4284603a4b3dad68d3621c5ce6990ea20d8d7e)]:
+  - @mastra/mcp@2.9.0-alpha.4
+
 ## 1.4.0-alpha.4
 
 ### Minor Changes

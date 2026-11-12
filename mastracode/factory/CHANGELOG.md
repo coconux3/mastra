@@ -1,5 +1,18 @@
 # @mastra/factory
 
+## 0.28.0-alpha.12
+
+### Patch Changes
+
+- Record a retryable `run_incomplete` failure when a Factory working-phase runner ends cleanly before the card progresses. Retry the incomplete delivery once, then show the terminal failure on the card instead of silently marking the decision successful. ([#30101](https://github.com/mastra-ai/mastra/pull/30101))
+
+- Honor explicit board-defined Planning routes for triaged items regardless of author trust, and return approval-labeled cards left in Triage to Intake without removing their approval label. ([#30100](https://github.com/mastra-ai/mastra/pull/30100))
+
+- Updated dependencies [[`2d42846`](https://github.com/mastra-ai/mastra/commit/2d4284603a4b3dad68d3621c5ce6990ea20d8d7e), [`2d42846`](https://github.com/mastra-ai/mastra/commit/2d4284603a4b3dad68d3621c5ce6990ea20d8d7e)]:
+  - @mastra/code-sdk@1.19.0-alpha.12
+  - @mastra/mcp@2.9.0-alpha.4
+  - @mastra/connect@1.4.0-alpha.5
+
 ## 0.28.0-alpha.11
 
 ### Minor Changes

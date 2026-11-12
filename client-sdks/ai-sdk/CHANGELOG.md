@@ -1,5 +1,11 @@
 # @mastra/ai-sdk
 
+## 1.12.0-alpha.1
+
+### Patch Changes
+
+- Preserve optional tool titles in AI SDK v6 and v7 tool-input stream events so clients can display human-readable tool names. ([#30125](https://github.com/mastra-ai/mastra/pull/30125))
+
 ## 1.12.0-alpha.0
 
 ### Minor Changes
