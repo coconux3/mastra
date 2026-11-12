@@ -29,7 +29,7 @@ jobs:
     steps:
       - name: Check for major changesets
         id: check_major
-        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+        uses: actions/github-script@v9.0.0
         with:
           script: |
             const prNumber = context.payload?.pull_request?.number || context.payload?.issue?.number;
@@ -108,7 +108,7 @@ jobs:
       - name: Generate GitHub App token
         if: steps.check_major.outputs.has_major_changeset == 'true'
         id: app-auth
-        uses: ./.github/actions/app-auth
+        uses: $/.github/actions/app-auth
         with:
           client-id: ${{ vars.DANE_CLIENT_ID }}
           private-key: ${{ secrets.DANE_APP_PRIVATE_KEY }}
@@ -120,7 +120,7 @@ jobs:
       - name: Check if major version bump is allowed
         if: steps.check_major.outputs.has_major_changeset == 'true'
         id: check_approval
-        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+        uses: actions/github-script@v9.0.0
         with:
           github-token: ${{ steps.app-auth.outputs.token }}
           script: |

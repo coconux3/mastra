@@ -157,11 +157,11 @@ jobs:
           fetch-depth: 2
 
       - name: Setup pnpm and Node.js
-        uses: ./.github/actions/setup-pnpm-node
+        uses: $/.github/actions/setup-pnpm-node
 
       - name: Cache turbo build setup
         if: ${{ env.TURBO_TOKEN == '' }}
-        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
+        uses: actions/cache@v6.1.0
         with:
           path: .turbo/cache
           key: turbo-${{ runner.os }}-${{ github.sha }}
@@ -204,7 +204,7 @@ jobs:
           filter: blob:none
 
       - name: Setup pnpm and Node.js
-        uses: ./.github/actions/setup-pnpm-node
+        uses: $/.github/actions/setup-pnpm-node
         with:
           install-dependencies: false
 
@@ -217,7 +217,7 @@ jobs:
       # affected-graph-seed.yml. PRs only restore it, so per-PR runs don't fill
       # the repo's cache quota.
       - name: Restore affected-test extraction cache
-        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
+        uses: actions/cache/restore@v6.1.0
         with:
           path: ${{ runner.temp }}/affected-graph.json
           key: affected-graph-v1-${{ runner.os }}-${{ github.sha }}
@@ -234,7 +234,7 @@ jobs:
 
       - name: Upload affected-tests artifact
         if: always()
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        uses: actions/upload-artifact@v7.0.1
         with:
           name: affected-tests-outputs
           path: /tmp/affected-outputs/
@@ -366,11 +366,11 @@ jobs:
           ref: ${{ needs.changes.outputs.head_sha }}
 
       - name: Setup pnpm and Node.js
-        uses: ./.github/actions/setup-pnpm-node
+        uses: $/.github/actions/setup-pnpm-node
 
       - name: Cache turbo build setup
         if: ${{ env.TURBO_TOKEN == '' }}
-        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
+        uses: actions/cache@v6.1.0
         with:
           path: .turbo/cache
           key: turbo-${{ runner.os }}-${{ github.sha }}
@@ -496,7 +496,7 @@ jobs:
 
       - name: Post to Slack
         if: steps.state.outputs.text != ''
-        uses: ./.github/actions/slack-alert
+        uses: $/.github/actions/slack-alert
         with:
           token: ${{ secrets.SLACK_BOT_TOKEN }}
           text: ${{ steps.state.outputs.text }}

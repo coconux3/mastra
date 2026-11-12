@@ -32,7 +32,7 @@ jobs:
           fetch-depth: 1
 
       - name: Setup pnpm and Node.js
-        uses: ./.github/actions/setup-pnpm-node
+        uses: $/.github/actions/setup-pnpm-node
         with:
           install-dependencies: false
 
@@ -41,7 +41,7 @@ jobs:
 
       # Start from the previous seed so only files changed since then are parsed.
       - name: Restore previous seed
-        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
+        uses: actions/cache/restore@v6.1.0
         with:
           path: ${{ runner.temp }}/affected-graph.json
           key: affected-graph-v1-${{ runner.os }}-${{ github.sha }}
@@ -55,7 +55,7 @@ jobs:
         run: node scripts/affected-tests.mjs --json packages/core/src/index.ts > /dev/null
 
       - name: Save seed
-        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6
+        uses: actions/cache/save@v6.1.0
         with:
           path: ${{ runner.temp }}/affected-graph.json
           key: affected-graph-v1-${{ runner.os }}-${{ github.sha }}

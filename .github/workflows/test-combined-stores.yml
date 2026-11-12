@@ -104,7 +104,7 @@ jobs:
           persist-credentials: false
 
       - name: Setup pnpm and Node.js
-        uses: ./.github/actions/setup-pnpm-node
+        uses: $/.github/actions/setup-pnpm-node
 
       - name: Build combined storage packages
         run: pnpm turbo --filter "@mastra/${{ matrix.store }}" build
@@ -144,7 +144,7 @@ jobs:
           persist-credentials: false
 
       - name: Setup pnpm and Node.js
-        uses: ./.github/actions/setup-pnpm-node
+        uses: $/.github/actions/setup-pnpm-node
 
       - name: Select light stores
         id: filters

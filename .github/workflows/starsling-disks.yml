@@ -33,21 +33,21 @@ jobs:
       # Before pnpm writes anything: what is written to a disk after its step is what it publishes.
       - name: pnpm store disk
         id: store
-        uses: starslingdev/disks@v0
+        uses: starslingdev/disks@v0.1.0
         with:
           preset: pnpm-store
           publish: on-change
 
       - name: pnpm cache disk
         id: cache
-        uses: starslingdev/disks@v0
+        uses: starslingdev/disks@v0.1.0
         with:
           name: pnpm-cache
           path: ~/.cache/pnpm
           publish: on-change
 
       - name: Install
-        uses: ./.github/actions/setup-pnpm-node
+        uses: $/.github/actions/setup-pnpm-node
 
       # Only some StarSling runners carry Disks. On one that does not, the disk steps skip and nothing is
       # published; say so, so a re-run (workflow_dispatch) can pick it up.

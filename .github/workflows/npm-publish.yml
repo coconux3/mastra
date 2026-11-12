@@ -59,7 +59,7 @@ jobs:
           filter: blob:none
           persist-credentials: false
 
-      - uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271
+      - uses: pnpm/action-setup@v6.0.9
         name: Install pnpm
         with:
           run_install: false
@@ -188,7 +188,7 @@ jobs:
 
       - name: Dane App Auth
         id: app-auth
-        uses: ./.github/actions/app-auth
+        uses: $/.github/actions/app-auth
         with:
           client-id: ${{ vars.DANE_CLIENT_ID }}
           private-key: ${{ secrets.DANE_APP_PRIVATE_KEY }}
@@ -221,7 +221,7 @@ jobs:
             echo "files_exists=false" >> "$GITHUB_OUTPUT"
           fi
 
-      - uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271
+      - uses: pnpm/action-setup@v6.0.9
         name: Install pnpm
         with:
           run_install: false
@@ -366,7 +366,7 @@ jobs:
 
       - name: Dane App Auth
         id: app-auth
-        uses: ./.github/actions/app-auth
+        uses: $/.github/actions/app-auth
         with:
           client-id: ${{ vars.DANE_CLIENT_ID }}
           private-key: ${{ secrets.DANE_APP_PRIVATE_KEY }}
@@ -383,7 +383,7 @@ jobs:
           filter: blob:none
           persist-credentials: true
 
-      - uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271
+      - uses: pnpm/action-setup@v6.0.9
         name: Install pnpm
         with:
           run_install: false
@@ -446,7 +446,7 @@ jobs:
           filter: blob:none
           persist-credentials: false
 
-      - uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271
+      - uses: pnpm/action-setup@v6.0.9
         name: Install pnpm
         with:
           run_install: false
@@ -553,7 +553,7 @@ jobs:
 
       - name: Dane App Auth
         id: app-auth
-        uses: ./.github/actions/app-auth
+        uses: $/.github/actions/app-auth
         with:
           client-id: ${{ vars.DANE_CLIENT_ID }}
           private-key: ${{ secrets.DANE_APP_PRIVATE_KEY }}
@@ -570,7 +570,7 @@ jobs:
           filter: blob:none
           persist-credentials: true
 
-      - uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271
+      - uses: pnpm/action-setup@v6.0.9
         name: Install pnpm
         with:
           run_install: false

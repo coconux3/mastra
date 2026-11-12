@@ -41,7 +41,7 @@ jobs:
           persist-credentials: false
 
       - name: Setup pnpm and Node.js
-        uses: ./.github/actions/setup-pnpm-node
+        uses: $/.github/actions/setup-pnpm-node
 
       - name: Select packages
         id: filters
@@ -83,7 +83,7 @@ jobs:
           persist-credentials: false
 
       - name: Setup pnpm and Node.js
-        uses: ./.github/actions/setup-pnpm-node
+        uses: $/.github/actions/setup-pnpm-node
 
       - name: Build packages
         run: pnpm turbo build --filter "@mastra/${{ matrix.package }}"

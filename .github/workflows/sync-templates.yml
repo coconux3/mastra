@@ -28,7 +28,7 @@ jobs:
 
       - name: Dane App Auth
         id: app-auth
-        uses: ./.github/actions/app-auth
+        uses: $/.github/actions/app-auth
         with:
           client-id: ${{ vars.DANE_CLIENT_ID }}
           private-key: ${{ secrets.DANE_APP_PRIVATE_KEY }}
@@ -41,7 +41,7 @@ jobs:
         timeout-minutes: 20
 
       - name: Setup pnpm and Node.js
-        uses: ./.github/actions/setup-pnpm-node
+        uses: $/.github/actions/setup-pnpm-node
 
       - name: Install dependencies
         run: pnpm --config.trust-policy=no-check add -w --no-lockfile @octokit/rest fs-extra dotenv

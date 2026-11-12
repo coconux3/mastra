@@ -26,7 +26,7 @@ jobs:
           persist-credentials: true
 
       - name: Setup pnpm and Node.js
-        uses: ./.github/actions/setup-pnpm-node
+        uses: $/.github/actions/setup-pnpm-node
         with:
           install-dependencies: 'false'
           package-manager-cache: 'false'
@@ -47,7 +47,7 @@ jobs:
           git config --global user.email '199639756+daneatmastra@users.noreply.github.com'
 
       - name: Create/Update Changesets
-        uses: 'wardpeet/changesets-dependencies-action@f11b16181c79e07d62b112c2f32c9db534a9df09'
+        uses: 'wardpeet/changesets-dependencies-action@v1.2.2'
         env:
           GITHUB_TOKEN: ${{ secrets.RENOVATE_PAT  }}
           SKIP_CREDENTIALS: '1'

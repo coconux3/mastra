@@ -43,7 +43,7 @@ jobs:
           persist-credentials: false
 
       - name: Setup pnpm and Node.js
-        uses: ./.github/actions/setup-pnpm-node
+        uses: $/.github/actions/setup-pnpm-node
 
       - name: Build packages
         run: pnpm build
@@ -79,7 +79,7 @@ jobs:
           echo "digest=$digest" >> "$GITHUB_OUTPUT"
 
       - name: Upload E2E registry artifact
-        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        uses: actions/upload-artifact@v7.0.2
         with:
           name: e2e-verdaccio-registry
           path: ${{ runner.temp }}/mastra-e2e-registry
@@ -103,14 +103,14 @@ jobs:
           persist-credentials: false
 
       - name: Setup pnpm and Node.js
-        uses: ./.github/actions/setup-pnpm-node
+        uses: $/.github/actions/setup-pnpm-node
 
       - name: Install experiment worker E2E dependencies
         working-directory: ./e2e-tests/experiment-worker
         run: pnpm install --frozen-lockfile
 
       - name: Download E2E registry artifact
-        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
+        uses: actions/download-artifact@v8.0.2
         with:
           name: e2e-verdaccio-registry
           path: ${{ runner.temp }}/mastra-e2e-registry
@@ -142,7 +142,7 @@ jobs:
 
       - name: Upload experiments reports and transcripts
         if: always()
-        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        uses: actions/upload-artifact@v7.0.2
         with:
           name: experiments-pr-reports
           path: ${{ runner.temp }}/experiments-reports
@@ -170,10 +170,10 @@ jobs:
           ref: ${{ inputs.head_sha }}
 
       - name: Setup pnpm and Node.js
-        uses: ./.github/actions/setup-pnpm-node
+        uses: $/.github/actions/setup-pnpm-node
 
       - name: Setup Bun
-        uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2
+        uses: oven-sh/setup-bun@v2.2.0
         with:
           bun-version: '1.4.3'
 
@@ -185,7 +185,7 @@ jobs:
         run: pnpm install
 
       - name: Download E2E registry artifact
-        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
+        uses: actions/download-artifact@v8.0.2
         with:
           name: e2e-verdaccio-registry
           path: ${{ runner.temp }}/mastra-e2e-registry
@@ -220,7 +220,7 @@ jobs:
           ref: ${{ inputs.head_sha }}
 
       - name: Setup pnpm and Node.js
-        uses: ./.github/actions/setup-pnpm-node
+        uses: $/.github/actions/setup-pnpm-node
 
       - name: Build
         run: pnpm turbo --filter "@mastra/core" --filter "@mastra/evals" --filter "@mastra/libsql" --filter "@mastra/loggers" --filter "@mastra/memory" --filter "@mastra/observability" --filter "mastra" build
@@ -230,7 +230,7 @@ jobs:
         run: pnpm install
 
       - name: Download E2E registry artifact
-        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
+        uses: actions/download-artifact@v8.0.2
         with:
           name: e2e-verdaccio-registry
           path: ${{ runner.temp }}/mastra-e2e-registry
@@ -262,14 +262,14 @@ jobs:
           ref: ${{ inputs.head_sha }}
 
       - name: Setup pnpm and Node.js
-        uses: ./.github/actions/setup-pnpm-node
+        uses: $/.github/actions/setup-pnpm-node
 
       - name: Install registry setup dependencies
         working-directory: ./e2e-tests/_local-registry-setup
         run: pnpm install --frozen-lockfile
 
       - name: Download E2E registry artifact
-        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
+        uses: actions/download-artifact@v8.0.2
         with:
           name: e2e-verdaccio-registry
           path: ${{ runner.temp }}/mastra-e2e-registry
@@ -317,7 +317,7 @@ jobs:
           ref: ${{ inputs.head_sha }}
 
       - name: Setup pnpm and Node.js
-        uses: ./.github/actions/setup-pnpm-node
+        uses: $/.github/actions/setup-pnpm-node
 
       - name: Build
         run: pnpm turbo --filter "create-mastra" build
@@ -327,7 +327,7 @@ jobs:
         run: pnpm install
 
       - name: Download E2E registry artifact
-        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
+        uses: actions/download-artifact@v8.0.2
         with:
           name: e2e-verdaccio-registry
           path: ${{ runner.temp }}/mastra-e2e-registry
@@ -362,7 +362,7 @@ jobs:
           ref: ${{ inputs.head_sha }}
 
       - name: Setup pnpm and Node.js
-        uses: ./.github/actions/setup-pnpm-node
+        uses: $/.github/actions/setup-pnpm-node
 
       - name: Build
         run: pnpm turbo --filter "@mastra/core" --filter "@mastra/loggers" build
@@ -372,7 +372,7 @@ jobs:
         run: pnpm install
 
       - name: Download E2E registry artifact
-        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
+        uses: actions/download-artifact@v8.0.2
         with:
           name: e2e-verdaccio-registry
           path: ${{ runner.temp }}/mastra-e2e-registry
@@ -403,14 +403,14 @@ jobs:
           persist-credentials: false
 
       - name: Setup pnpm and Node.js
-        uses: ./.github/actions/setup-pnpm-node
+        uses: $/.github/actions/setup-pnpm-node
 
       - name: Install e2e test dependencies
         working-directory: ./e2e-tests/npm-import
         run: pnpm install
 
       - name: Download E2E registry artifact
-        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
+        uses: actions/download-artifact@v8.0.2
         with:
           name: e2e-verdaccio-registry
           path: ${{ runner.temp }}/mastra-e2e-registry
@@ -444,7 +444,7 @@ jobs:
           ref: ${{ inputs.head_sha }}
 
       - name: Setup pnpm and Node.js
-        uses: ./.github/actions/setup-pnpm-node
+        uses: $/.github/actions/setup-pnpm-node
 
       - name: Build
         run: pnpm build
@@ -454,7 +454,7 @@ jobs:
         run: pnpm install
 
       - name: Download E2E registry artifact
-        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
+        uses: actions/download-artifact@v8.0.2
         with:
           name: e2e-verdaccio-registry
           path: ${{ runner.temp }}/mastra-e2e-registry
@@ -489,7 +489,7 @@ jobs:
           ref: ${{ inputs.head_sha }}
 
       - name: Setup pnpm and Node.js
-        uses: ./.github/actions/setup-pnpm-node
+        uses: $/.github/actions/setup-pnpm-node
 
       - name: Build
         run: pnpm build
@@ -499,7 +499,7 @@ jobs:
         run: pnpm install
 
       - name: Download E2E registry artifact
-        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
+        uses: actions/download-artifact@v8.0.2
         with:
           name: e2e-verdaccio-registry
           path: ${{ runner.temp }}/mastra-e2e-registry
@@ -536,7 +536,7 @@ jobs:
           ref: ${{ inputs.head_sha }}
 
       - name: Setup pnpm and Node.js
-        uses: ./.github/actions/setup-pnpm-node
+        uses: $/.github/actions/setup-pnpm-node
 
       - name: Build
         run: >-
@@ -580,7 +580,7 @@ jobs:
           ref: ${{ inputs.head_sha }}
 
       - name: Setup pnpm and Node.js
-        uses: ./.github/actions/setup-pnpm-node
+        uses: $/.github/actions/setup-pnpm-node
 
       - name: Build
         run: pnpm build

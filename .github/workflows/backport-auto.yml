@@ -28,7 +28,7 @@ jobs:
 
       - name: Dane App Auth
         id: app-auth
-        uses: ./.github/actions/app-auth
+        uses: $/.github/actions/app-auth
         with:
           client-id: ${{ vars.DANE_CLIENT_ID }}
           private-key: ${{ secrets.DANE_APP_PRIVATE_KEY }}
@@ -48,7 +48,7 @@ jobs:
           filter: blob:none
 
       - name: Setup pnpm and Node.js
-        uses: ./.github/actions/setup-pnpm-node
+        uses: $/.github/actions/setup-pnpm-node
 
       - name: Backport PR
         run: pnpm dlx tsx packages/_changeset-cli/src/git/backport.ts ${{ github.event.pull_request.number }}

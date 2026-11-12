@@ -77,7 +77,7 @@ jobs:
 
       - name: Comment on PR if redirects are missing
         if: failure()
-        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+        uses: actions/github-script@v9.0.0
         with:
           script: |
             const logsUrl = `${context.payload.repository.html_url}/actions/runs/${context.runId}`;
@@ -137,7 +137,7 @@ jobs:
         timeout-minutes: 20
 
       - name: Setup pnpm and Node.js
-        uses: ./.github/actions/setup-pnpm-node
+        uses: $/.github/actions/setup-pnpm-node
 
       - name: Verify generated vercel redirects are up to date
         working-directory: ./docs
@@ -150,7 +150,7 @@ jobs:
 
       - name: Comment on PR if redirect issues found
         if: failure()
-        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+        uses: actions/github-script@v9.0.0
         with:
           script: |
             const logsUrl = `${context.payload.repository.html_url}/actions/runs/${context.runId}`;
@@ -214,7 +214,7 @@ jobs:
           filter: blob:none
 
       - name: Setup pnpm and Node.js
-        uses: ./.github/actions/setup-pnpm-node
+        uses: $/.github/actions/setup-pnpm-node
 
       # One command for formatting, frontmatter, sidebars, structure, links,
       # remark-lint, and redirects. Vale runs below on changed files only.

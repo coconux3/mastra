@@ -31,7 +31,7 @@ jobs:
           ref: mastra@${{ inputs.version }}
 
       - name: Setup pnpm and Node.js
-        uses: ./.github/actions/setup-pnpm-node
+        uses: $/.github/actions/setup-pnpm-node
 
       - name: Build packages
         run: pnpm turbo build --filter="mastra"

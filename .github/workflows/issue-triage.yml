@@ -20,7 +20,7 @@ jobs:
 
       - name: Dane App Auth
         id: app-auth
-        uses: ./.github/actions/app-auth
+        uses: $/.github/actions/app-auth
         with:
           client-id: ${{ vars.DANE_CLIENT_ID }}
           private-key: ${{ secrets.DANE_APP_PRIVATE_KEY }}

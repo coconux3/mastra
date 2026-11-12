@@ -36,7 +36,7 @@ jobs:
 
       - name: Dane App Auth
         id: app-auth
-        uses: ./.github/actions/app-auth
+        uses: $/.github/actions/app-auth
         with:
           client-id: ${{ vars.DANE_CLIENT_ID }}
           private-key: ${{ secrets.DANE_APP_PRIVATE_KEY }}
@@ -55,7 +55,7 @@ jobs:
           persist-credentials: true
 
       - name: Setup pnpm and Node.js
-        uses: ./.github/actions/setup-pnpm-node
+        uses: $/.github/actions/setup-pnpm-node
 
       - name: Build vendored ai-v6 package
         run: pnpm --filter @internal/ai-v6 build

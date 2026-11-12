@@ -43,13 +43,13 @@ jobs:
           persist-credentials: false
 
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@9b3254085494b55a0f7c4c2b3d2d52cc712ce370 # v4
+        uses: github/codeql-action/init@v4.39.1
         with:
           languages: ${{ matrix.language }}
           build-mode: none
 
       - name: Analyze
-        uses: github/codeql-action/analyze@9b3254085494b55a0f7c4c2b3d2d52cc712ce370 # v4
+        uses: github/codeql-action/analyze@v4.39.1
         with:
           category: /language:${{ matrix.language }}
           # Uploading the database is only for running variant-analysis queries against this
@@ -229,7 +229,7 @@ jobs:
 
       - name: Post to Slack
         if: steps.state.outputs.text != ''
-        uses: ./.github/actions/slack-alert
+        uses: $/.github/actions/slack-alert
         with:
           token: ${{ secrets.SLACK_BOT_TOKEN }}
           text: ${{ steps.state.outputs.text }}
